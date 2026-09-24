@@ -1,0 +1,797 @@
+/* =========================================================
+   MODERN WEBSITE UI — CLEAN / PREMIUM / RESPONSIVE
+   ========================================================= */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-soft: #dbeafe;
+    --secondary: #0f172a;
+    --text: #1e293b;
+    --muted: #64748b;
+    --soft: #f8fafc;
+    --white: #ffffff;
+    --border: rgba(15, 23, 42, 0.08);
+    --shadow-sm: 0 6px 20px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 12px 35px rgba(15, 23, 42, 0.09);
+    --shadow-lg: 0 20px 55px rgba(15, 23, 42, 0.14);
+    --radius: 22px;
+}
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+}
+
+::selection {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
+    transition: 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: var(--secondary) !important;
+    letter-spacing: -0.4px;
+}
+
+.navbar-brand span {
+    color: var(--primary);
+}
+
+.navbar .nav-link {
+    color: var(--text);
+    font-weight: 600;
+    transition: 0.25s ease;
+    position: relative;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    min-height: 78vh;
+    position: relative;
+    background:
+        radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.14), transparent 28%),
+        linear-gradient(135deg, #eff6ff 0%, #ffffff 55%, #dbeafe 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.07);
+    top: -140px;
+    left: -100px;
+    pointer-events: none;
+}
+
+.hero h1 {
+    font-size: clamp(2.3rem, 5vw, 4.7rem);
+    font-weight: 850;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--secondary);
+}
+
+.hero .lead {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+.hero-shape {
+    width: 360px;
+    height: 360px;
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 25px 80px rgba(37, 99, 235, 0.12);
+}
+
+.hero-shape img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    display: block;
+}
+
+/* =========================
+   SECTION
+   ========================= */
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-weight: 850;
+    color: var(--secondary);
+    letter-spacing: -0.8px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    max-width: 700px;
+}
+
+/* =========================
+   GRID / JARAK KOTAK
+   ========================= */
+
+/* Jangan biarkan card berdempetan */
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+/* =========================
+   MODERN CARD
+   ========================= */
+
+.card-modern {
+    position: relative;
+    height: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card-modern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.04),
+        transparent 45%
+    );
+    pointer-events: none;
+}
+
+.card-modern:hover {
+    transform: translateY(-8px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-modern .card-body {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   STAT CARD
+   ========================= */
+
+.stat {
+    position: relative;
+    height: 100%;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.stat::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--primary-soft);
+    right: -35px;
+    top: -35px;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat h3 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 5px;
+    font-weight: 850;
+    color: var(--secondary);
+}
+
+/* =========================
+   IMAGE CARD
+   ========================= */
+
+.program-img,
+.news-img,
+.gallery-img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    transition: transform 0.45s ease;
+}
+
+.card-modern:hover .program-img,
+.card-modern:hover .news-img,
+.card-modern:hover .gallery-img {
+    transform: scale(1.035);
+}
+
+/* =========================
+   AVATAR / ORGANIZATION
+   ========================= */
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    box-shadow: var(--shadow-md);
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.org-card {
+    text-align: center;
+    padding: 28px;
+}
+
+/* =========================
+   TIMELINE
+   ========================= */
+
+.timeline {
+    border-left: 3px solid #bfdbfe;
+    padding-left: 28px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    background: var(--primary);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-color: transparent;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.20);
+    transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.28);
+}
+
+/* =========================
+   BADGE
+   ========================= */
+
+.badge-soft {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-soft);
+    color: #1d4ed8;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-weight: 700;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background: #0f172a;
+    color: #cbd5e1;
+}
+
+.footer-link {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+}
+
+/* =========================
+   LOGO NAVBAR
+   ========================= */
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.navbar .navbar-brand .website-logo {
+    width: 120px !important;
+    height: 45px !important;
+    max-width: 120px !important;
+    max-height: 45px !important;
+    min-width: 120px !important;
+    min-height: 45px !important;
+    object-fit: contain !important;
+    display: block !important;
+    flex-shrink: 0;
+}
+
+.navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0;
+}
+
+.navbar .nav-link {
+    white-space: nowrap !important;
+    font-size: 15px !important;
+    font-weight: 500;
+    padding: 8px 7px !important;
+    line-height: 1.2;
+}
+/* =========================
+   BACK TO TOP
+   ========================= */
+
+#backTop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: none;
+    z-index: 1000;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================
+   ANIMATION
+   ========================= */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.7s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: none;
+}
+
+/* =========================
+   DARK MODE — GLOBAL / ALL PAGES
+   ========================= */
+
+/*
+   Dipakai oleh SEMUA halaman karena navbar.php + app.js
+   digunakan bersama. Class dark-mode dipasang pada <body>.
+*/
+
+body.dark-mode {
+    background: #172554 !important;
+    color: #e2e8f0;
+}
+
+/* Semua section yang sebelumnya mewarisi putih */
+body.dark-mode .section {
+    background: transparent;
+    color: #e2e8f0;
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+    background: rgba(0, 2, 7, 0.96) !important;
+    border-bottom-color: rgb(0, 0, 0);
+    box-shadow: 0 4px 24px rgba(2, 6, 23, 0.22);
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+    color: #e0f2fe !important;
+}
+
+body.dark-mode .navbar-brand span {
+    color: #60a5fa !important;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    color: #06172b !important;
+}
+
+/* Tombol Dark Mode */
+body.dark-mode #themeToggle {
+    color: #e0f2fe;
+    border-color: rgba(224, 242, 254, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode #themeToggle:hover {
+    color: #ffffff;
+    background: rgb(96, 165, 250);
+    border-color: #01080f;
+}
+
+/* Judul dan teks utama di SEMUA halaman */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode label,
+body.dark-mode .card-title,
+body.dark-mode .card-text,
+body.dark-mode .section-title {
+    color: #000a10; /* warna sambutan */
+}
+
+body.dark-mode .section-title {
+    color: #031a29; /* Warna tempat Bertumbuh */
+}
+
+
+.ketua-nama {
+    color: #0f172a !important;
+    font-weight: 700;
+}
+
+body.dark-mode .ketua-nama {
+    color: #e0f2fe !important;
+}
+
+
+body.dark-mode .eyebrow {
+    color: #60a5fa !important;
+    font-weight: 800;
+}
+
+body.dark-mode .text-muted,
+body.dark-mode .section-subtitle {
+    color: #10a3f2 !important;
+}
+
+/* Link */
+body.dark-mode a:not(.btn) {
+    color: #93c5fd;
+}
+
+body.dark-mode a:not(.btn):hover {
+    color: #010912;
+}
+
+/* Card umum — berlaku untuk Tentang, Organisasi, Program,
+   Kegiatan, Berita, Gabung, Kontak, dan halaman detail */
+body.dark-mode .card-modern,
+body.dark-mode .stat {
+    background: #1e3a5f !important;
+    border-color: rgb(1, 13, 26) !important;
+    color: #e2e8f0;
+    box-shadow: 0 12px 35px rgba(2, 6, 23, 0.24);
+}
+
+body.dark-mode .card-modern::before {
+    background: linear-gradient(
+        135deg,
+        rgba(1, 10, 19, 0.1),
+        transparent 45%
+    );
+}
+
+body.dark-mode .card-modern:hover {
+    border-color: rgba(147, 197, 253, 0.40) !important;
+    box-shadow: 0 20px 55px rgba(2, 6, 23, 0.32);
+}
+
+body.dark-mode .stat::after {
+    background: rgb(1, 10, 21);
+}
+
+body.dark-mode .stat h3 {
+    color: #f0f9ff !important;
+}
+
+/* Hero */
+body.dark-mode .hero {
+    background:
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(59, 130, 246, 0.22),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(14, 165, 233, 0.12),
+            transparent 25%
+        ),
+        linear-gradient(135deg, #172554, #1e3a5f);
+}
+
+body.dark-mode .hero h1 {
+    color: #f0f9ff !important;
+}
+
+body.dark-mode .hero .lead {
+    color: #bae6fd !important;
+}
+
+body.dark-mode .hero-shape {
+    background: rgba(30, 58, 95, 0.62);
+    box-shadow: 0 25px 80px rgba(2, 6, 23, 0.30);
+}
+
+/* Timeline */
+body.dark-mode .timeline {
+    border-left-color: #60a5fa;
+}
+
+body.dark-mode .timeline-item:before {
+    background: #60a5fa;
+    border-color: #172554;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+}
+
+/* Badge */
+body.dark-mode .badge-soft {
+    background: rgba(96, 165, 250, 0.18);
+    color: #bfdbfe;
+}
+
+/* Form — penting untuk halaman Gabung & Kontak */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #00050c !important;
+    color: #e0f2fe !important;
+    border-color: rgba(147, 197, 253, 0.24) !important;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #93c5fd !important;
+    opacity: 0.75;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #123157 !important;
+    color: #f0f9ff !important;
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.16);
+}
+
+body.dark-mode option {
+    background: #0f2747;
+    color: #e0f2fe;
+}
+
+/* Tombol outline */
+body.dark-mode .btn-outline-primary {
+    color: #93c5fd;
+    border-color: #60a5fa;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    color: #ffffff;
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Alert */
+body.dark-mode .alert-success {
+    background: rgba(22, 163, 74, 0.16);
+    color: #bbf7d0;
+    border-color: rgba(74, 222, 128, 0.25);
+}
+
+body.dark-mode .alert-danger {
+    background: rgba(220, 38, 38, 0.16);
+    color: #fecaca;
+    border-color: rgba(248, 113, 113, 0.25);
+}
+
+/* Footer */
+body.dark-mode footer {
+    background: #0f2747 !important;
+    color: #bae6fd;
+}
+
+body.dark-mode footer h5,
+body.dark-mode footer h6,
+body.dark-mode footer .text-white {
+    color: #f0f9ff !important;
+}
+
+body.dark-mode .footer-link {
+    color: #bae6fd !important;
+}
+
+body.dark-mode .footer-link:hover {
+    color: #ffffff !important;
+}
+
+/* Modal galeri */
+body.dark-mode .modal-content {
+    border-color: rgba(147, 197, 253, 0.18);
+}
+
+/* =========================
+   END DARK MODE
+   ========================= */
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 992px) {
+    .hero-shape {
+        width: 280px;
+        height: 280px;
+        right: 30px;
+    }
+
+    .hero-shape img {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 55px 0;
+    }
+
+    .hero {
+        min-height: 75vh;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    .hero .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-shape {
+        position: relative;
+        width: 240px;
+        height: 240px;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 35px auto 0;
+    }
+
+    .hero-shape img {
+        width: 190px;
+        height: 190px;
+    }
+
+    .program-img,
+    .news-img,
+    .gallery-img {
+        height: 190px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section {
+        padding: 45px 0;
+    }
+
+    .card-modern,
+    .stat {
+        border-radius: 18px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-shape {
+        width: 210px;
+        height: 210px;
+    }
+
+    .hero-shape img {
+        width: 165px;
+        height: 165px;
+    }
+
+    .program-img,
+    .news-img,
+    .gallery-img {
+        height: 175px;
+    }
+}
