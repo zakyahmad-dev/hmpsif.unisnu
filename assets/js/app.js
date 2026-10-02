@@ -1,85 +1,92 @@
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("themeToggle");
+    const themeIcons = document.querySelectorAll("[data-theme-icon]");
 
-    // Terapkan tema yang tersimpan pada semua halaman.
-    const savedTheme = localStorage.getItem("theme");
-    const isDark = savedTheme === "dark";
-
-    document.body.classList.toggle("dark-mode", isDark);
-    updateThemeIcon(isDark);
-
-    // Semua halaman memakai tombol dari navbar.php.
-    themeToggle?.addEventListener("click", () => {
-        const dark = document.body.classList.toggle("dark-mode");
-
-        localStorage.setItem("theme", dark ? "dark" : "light");
-        updateThemeIcon(dark);
-    });
-
-    function updateThemeIcon(dark) {
-        if (!themeToggle) return;
-
-        const icon = themeToggle.querySelector("i");
-
-        if (icon) {
-            icon.classList.toggle("fa-moon", !dark);
-            icon.classList.toggle("fa-sun", dark);
-        }
-
-        themeToggle.setAttribute(
-            "aria-label",
-            dark ? "Aktifkan mode terang" : "Aktifkan mode gelap"
-        );
-        themeToggle.setAttribute(
-            "title",
-            dark ? "Mode terang" : "Mode gelap"
-        );
+    let savedTheme = "light";
+    try {
+        savedTheme = localStorage.getItem("theme") || "light";
+    } catch (error) {
+        // Continue with the light theme when storage is unavailable.
     }
 
-    const top = document.getElementById("backTop");
+    const applyTheme = (dark) => {
+        document.body.classList.toggle("dark-mode", dark);
+        themeIcons.forEach((icon) => {
+            icon.classList.toggle("d-none", icon.dataset.themeIcon === (dark ? "moon" : "sun"));
+        });
 
-    window.addEventListener("scroll", () => {
-        if (top) {
-            top.style.display = window.scrollY > 400 ? "block" : "none";
+        if (themeToggle) {
+            themeToggle.setAttribute("aria-label", dark ? "Aktifkan mode terang" : "Aktifkan mode gelap");
+            themeToggle.setAttribute("title", dark ? "Aktifkan mode terang" : "Aktifkan mode gelap");
+            themeToggle.setAttribute("aria-pressed", dark ? "true" : "false");
+        }
+    };
+
+    applyTheme(savedTheme === "dark");
+
+    themeToggle?.addEventListener("click", () => {
+        const dark = !document.body.classList.contains("dark-mode");
+        applyTheme(dark);
+        try {
+            localStorage.setItem("theme", dark ? "dark" : "light");
+        } catch (error) {
+            // The current page still updates even when storage is unavailable.
         }
     });
 
-    top?.addEventListener("click", () => {
+    const backTop = document.getElementById("backTop");
+    const updateBackTop = () => backTop?.classList.toggle("is-visible", window.scrollY > 420);
+    updateBackTop();
+    window.addEventListener("scroll", updateBackTop, { passive: true });
+
+    backTop?.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", (e) => {
-            const target = document.querySelector(a.getAttribute("href"));
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const id = link.getAttribute("href");
+            if (!id || id === "#") return;
 
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: "smooth" });
-            }
+            const target = document.getElementById(id.slice(1));
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
     });
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) entry.target.classList.add("show");
+    const navigation = document.getElementById("mainNavigation");
+    if (navigation && window.bootstrap) {
+        navigation.querySelectorAll("a:not(.dropdown-toggle)").forEach((link) => {
+            link.addEventListener("click", () => {
+                if (window.innerWidth < 992 && navigation.classList.contains("show")) {
+                    bootstrap.Collapse.getOrCreateInstance(navigation).hide();
+                }
             });
-        },
-        { threshold: 0.1 }
-    );
+        });
+    }
 
-    document.querySelectorAll(".fade-up").forEach((element) => {
-        observer.observe(element);
-    });
+    const animatedItems = document.querySelectorAll(".fade-up");
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        animatedItems.forEach((element) => observer.observe(element));
+    } else {
+        animatedItems.forEach((element) => element.classList.add("show"));
+    }
 
     document.querySelectorAll("[data-filter]").forEach((input) => {
         input.addEventListener("input", () => {
-            const q = input.value.toLowerCase();
-
+            const query = input.value.trim().toLowerCase();
             document.querySelectorAll(".filter-item").forEach((card) => {
-                card.style.display = card.innerText.toLowerCase().includes(q)
-                    ? ""
-                    : "none";
+                card.hidden = !card.innerText.toLowerCase().includes(query);
             });
         });
     });
@@ -87,16 +94,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".toast-trigger").forEach((button) => {
         button.addEventListener("click", () => {
             const toastElement = document.getElementById("successToast");
-
             if (toastElement && window.bootstrap) {
-                new bootstrap.Toast(toastElement).show();
+                bootstrap.Toast.getOrCreateInstance(toastElement).show();
             }
         });
     });
 
-    const year = document.getElementById("year");
+    const lightboxImage = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    document.querySelectorAll("[data-gallery-image]").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+            const image = trigger.querySelector("img");
+            if (!image || !lightboxImage) return;
+            lightboxImage.src = image.currentSrc || image.src;
+            lightboxImage.alt = image.alt;
+            if (lightboxCaption) lightboxCaption.textContent = trigger.dataset.caption || image.alt;
+        });
+    });
 
-    if (year) {
-        year.textContent = new Date().getFullYear();
-    }
+    const year = document.getElementById("year");
+    if (year) year.textContent = new Date().getFullYear();
 });

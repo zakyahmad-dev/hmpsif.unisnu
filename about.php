@@ -1,250 +1,98 @@
 <?php require "includes.php"; ?>
 <!doctype html>
 <html lang="id">
-    <a class="about-brand" href="index.php">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About | HMPSIF</title>
+    <title>Tentang Pembuat | HMPSIF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <link href="assets/css/style_modern.css" rel="stylesheet">
-    <style>
-        .about-hero { padding: 90px 0 70px; background: linear-gradient(135deg, #eef4ff, #ffffff); }
-        .about-card { border: 0; border-radius: 22px; box-shadow: 0 10px 35px rgba(0,0,0,.07); height: 100%; }
-        .creator-photo { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; border: 5px solid #eef2ff; background: #e9ecef; }
-        .tech-item { border-radius: 16px; padding: 22px; background: #fff; box-shadow: 0 8px 25px rgba(0,0,0,.05); height: 100%; }
-        .contact-item i { width: 32px; }
-    </style>
 </head>
 <body>
-
 <?php include "navbar.php"; ?>
 
 <header class="about-hero">
     <div class="container text-center">
-        <div class="eyebrow mb-3">Mengenal Pembuat Website</div>
-        <h1 class="display-5 fw-bold">About HMPSIF</h1>
-        <p class="lead text-secondary mx-auto" style="max-width: 720px;">
-            Halaman informasi mengenai pembuat website HMPSIF, profil singkat,
-            teknologi yang digunakan, serta kontak yang dapat dihubungi.
-        </p>
+        <div class="eyebrow">Di balik layar</div>
+        <h1 class="section-title">Dibangun dengan kolaborasi.</h1>
+        <p class="section-subtitle mx-auto mb-0">Website HMPSIF menjadi ruang informasi dan komunikasi untuk mahasiswa Informatika UNISNU Jepara.</p>
     </div>
 </header>
 
-<section class="section">
-    <div class="container">
-        <div class="text-center mb-5">
-            <div class="eyebrow">Website Creator</div>
-            <h2 class="section-title mt-2">Dibuat oleh</h2>
-            <p class="text-muted">Dua Anggota HMPSIF</p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card about-card p-4 text-center">
-                    <img src="assets/img/creator-1.jpg" alt="Foto Pembuat 1" class="creator-photo mx-auto mb-3"
-                         onerror="this.src='assets/img/foto-pengurus/nauval.jpg'">
-                    <h4>Nauval Hibrizi Hakim</h4>
-                    <p class="text-primary fw-semibold mb-2">Web Developer / Frontend Developer</p>
-                    <p class="text-muted">Profil singkat pembuat pertama. Jelaskan peran, kontribusi, dan tanggung jawabnya dalam proses pembuatan website HMPSIF.</p>
-                    <div class="contact-item text-muted"><i class="fa-solid fa-envelope"></i> nauvalhibrizi.2524@student.unisnu.ac.id</div>
-                    <div class="contact-item text-muted"><i class="fa-brands fa-instagram"></i> @nauvalhakim23</div>
-                </div>
+<main>
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="eyebrow">Tim pengembang</div>
+                <h2 class="section-title">Kenalan dengan pembuatnya.</h2>
+                <p class="section-subtitle mx-auto mb-0">Dua anggota HMPSIF yang berkolaborasi merancang dan mengembangkan website ini.</p>
             </div>
-
-            <div class="col-md-6">
-                <div class="card about-card p-4 text-center">
-                    <img src="assets/img/creator-2.jpg" alt="Foto Pembuat 2" class="creator-photo mx-auto mb-3"
-                         onerror="this.src='assets/img/foto-pengurus/zaky.jpg'">
-                    <h4>Zaky Ahmad Alkam Mushoffa</h4>
-                    <p class="text-primary fw-semibold mb-2">UI/UX Designer / Backend Developer</p>
-                    <p class="text-muted">Profil singkat pembuat kedua. Jelaskan peran, kontribusi, dan tanggung jawabnya dalam proses pembuatan website HMPSIF.</p>
-                    <div class="contact-item text-muted"><i class="fa-solid fa-envelope"></i> zakyakmal.2524@student.unisnu.ac.id</div>
-                    <div class="contact-item text-muted"><i class="fa-brands fa-instagram"></i> zakcyyy15</div>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-6 col-lg-5">
+                    <article class="about-card">
+                        <img src="assets/img/foto-pengurus/nauval.JPG" alt="Nauval Hibrizi Hakim" class="creator-photo" loading="lazy">
+                        <h3 class="h5 fw-bold mb-1">Nauval Hibrizi Hakim</h3>
+                        <p class="text-primary fw-semibold mb-3">Web &amp; Frontend Developer</p>
+                        <p class="text-muted mb-4">Berkontribusi pada pengembangan antarmuka dan pengalaman pengguna website HMPSIF.</p>
+                        <a class="card-link justify-content-center" href="mailto:nauvalhibrizi.2524@student.unisnu.ac.id">Hubungi via email <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-5">
+                    <article class="about-card">
+                        <img src="assets/img/foto-pengurus/zaky.JPG" alt="Zaky Ahmad Alkam Mushoffa" class="creator-photo" loading="lazy">
+                        <h3 class="h5 fw-bold mb-1">Zaky Ahmad Alkam Mushoffa</h3>
+                        <p class="text-primary fw-semibold mb-3">UI/UX &amp; Backend Developer</p>
+                        <p class="text-muted mb-4">Berkontribusi pada perancangan alur website, pengelolaan data, dan pengembangan sisi backend.</p>
+                        <a class="card-link justify-content-center" href="mailto:zakyakmal.2524@student.unisnu.ac.id">Hubungi via email <span aria-hidden="true">→</span></a>
+                    </article>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="section bg-light">
-    <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-5">
-                <div class="eyebrow">Profil Singkat</div>
-                <h2 class="section-title mt-2">Tentang pembuat website</h2>
-            </div>
-            <div class="col-lg-7">
-                <p style="text-align: justify;">
-                    Website HMPSIF dikembangkan sebagai media informasi dan komunikasi
-                    untuk memperkenalkan organisasi, menyampaikan program kerja,
-                    menampilkan kegiatan, serta memudahkan mahasiswa memperoleh informasi
-                    mengenai Himpunan Mahasiswa Prodi Teknik Informatika.
-                </p>
-                <p style="text-align: justify;">
-                    Dalam proses pengembangannya, pembuat website berfokus pada tampilan
-                    yang responsif, navigasi yang mudah digunakan, dan penyajian informasi
-                    yang terstruktur agar dapat diakses melalui berbagai perangkat.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="section">
-    <div class="container">
-        <div class="text-center mb-5">
-            <div class="eyebrow">Development Tools</div>
-            <h2 class="section-title mt-2">Teknologi yang digunakan</h2>
-        </div>
-
-        <div class="row g-4">
-
-            <!-- HTML -->
-            <div class="col-md-4">
-                <div class="tech-item">
-                    <img src="assets/img/html.jpeg"
-                         alt="Logo HTML"
-                         class="mb-3"
-                         style="width: 32px; height: 32px; object-fit: contain;">
-
-                    <h5>HTML</h5>
-                    <p class="text-muted mb-0">
-                        Digunakan untuk menyusun struktur halaman website.
-                    </p>
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <div class="eyebrow">Tujuan website</div>
+                    <h2 class="section-title">Informasi organisasi, lebih dekat dan mudah diakses.</h2>
                 </div>
-            </div>
-
-            <!-- CSS -->
-            <div class="col-md-4">
-                <div class="tech-item">
-                    <img src="assets/img/css.jpeg"
-                         alt="Logo CSS"
-                         class="mb-3"
-                         style="width: 32px; height: 32px; object-fit: contain;">
-
-                    <h5>CSS</h5>
-                    <p class="text-muted mb-0">
-                        Digunakan untuk mengatur tampilan, warna, layout, dan responsivitas.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Bootstrap -->
-            <div class="col-md-4">
-                <div class="tech-item">
-                    <img src="assets/img/bootstrap.jpeg"
-                         alt="Logo Bootstrap"
-                         class="mb-3"
-                         style="width: 32px; height: 32px; object-fit: contain;">
-
-                    <h5>Bootstrap</h5>
-                    <p class="text-muted mb-0">
-                        Digunakan untuk membantu membuat desain responsif dan komponen antarmuka.
-                    </p>
-                </div>
-            </div>
-
-            <!-- PHP -->
-            <div class="col-md-4">
-                <div class="tech-item">
-                    <img src="assets/img/php.jpeg"
-                         alt="Logo PHP"
-                         class="mb-3"
-                         style="width: 32px; height: 32px; object-fit: contain;">
-
-                    <h5>PHP</h5>
-                    <p class="text-muted mb-0">
-                        Digunakan untuk proses backend dan pengolahan data website.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Database -->
-            <div class="col-md-4">
-                <div class="tech-item">
-                    <img src="assets/img/database.jpeg"
-                         alt="Logo Database"
-                         class="mb-3"
-                         style="width: 32px; height: 32px; object-fit: contain;">
-
-                    <h5>Database</h5>
-                    <p class="text-muted mb-0">
-                        Digunakan untuk menyimpan dan mengelola data website.
-                    </p>
-                </div>
-            </div>
-
-            <!-- JavaScript -->
-            <div class="col-md-4">
-                <div class="tech-item">
-                    <img src="assets/img/javascript.jpeg"
-                         alt="Logo JavaScript"
-                         class="mb-3"
-                         style="width: 32px; height: 32px; object-fit: contain;">
-
-                    <h5>JavaScript</h5>
-                    <p class="text-muted mb-0">
-                        Digunakan untuk mendukung interaksi dan fitur dinamis pada halaman.
-                    </p>
-                </div>
-            </div>
-
-            <!-- XAMPP -->
-            <div class="col-md-4">
-                <div class="tech-item">
-                    <img src="assets/img/xampp.jpeg"
-                         alt="Logo XAMPP"
-                         class="mb-3"
-                         style="width: 32px; height: 32px; object-fit: contain;">
-
-                    <h5>XAMPP</h5>
-                    <p class="text-muted mb-0">
-                        Digunakan sebagai server lokal untuk menjalankan website PHP
-                        dan mengelola database.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-</section>
-
-<section class="section bg-light">
-    <div class="container">
-        <div class="text-center mb-4">
-            <div class="eyebrow">Get in Touch</div>
-            <h2 class="section-title mt-2">Kontak Pembuat</h2>
-            <p class="text-muted">Hubungi pembuat website melalui informasi berikut.</p>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-7">
-                <div class="card about-card p-4">
-                    <p class="contact-item mb-3"><i class="fa-solid fa-envelope text-primary"></i> nauvalhibrizi.2524@unisnu.ac.id</p>
-                    <p class="contact-item mb-3"><i class="fa-brands fa-instagram text-primary"></i> nauvalhakim23</p>
-                    <p class="contact-item mb-0"><i class="fa-brands fa-github text-primary"></i> nauvalhibrizi23</p>
+                <div class="col-lg-7">
+                    <p class="section-subtitle mb-3">Website ini dikembangkan untuk memperkenalkan organisasi, menyampaikan program kerja, menampilkan kegiatan, serta memudahkan mahasiswa memperoleh informasi tentang HMPSIF.</p>
+                    <p class="section-subtitle mb-0">Kami berupaya menjaga navigasi tetap sederhana, tampilan nyaman di berbagai ukuran layar, dan informasi tersusun agar mudah ditemukan.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer class="py-5">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-5"><h5 class="text-white">HMPSIF</h5><p>Himpunan Mahasiswa Prodi Teknik Informatika</p><p class="mb-0">“Berorganisasi, Berkarya, dan Berkontribusi.”</p></div>
-            <div class="col"><h6 class="text-white">Navigasi</h6><a class="footer-link d-block" href="tentang.php">Tentang Kami</a><a class="footer-link d-block" href="program.php">Program Kerja</a><a class="footer-link d-block" href="berita.php">Berita</a></div>
-            <div class="col"><h6 class="text-white">Kontak</h6><p class="mb-1">hmpsif@unisnu.ac.id</p><p>+62 882-0075-6878</p></div>
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="eyebrow">Teknologi</div>
+                <h2 class="section-title">Dibuat dengan teknologi web.</h2>
+            </div>
+            <div class="row g-3">
+                <?php foreach ([
+                    ["HTML", "Struktur konten halaman"],
+                    ["CSS", "Sistem visual dan layout responsif"],
+                    ["JS", "Interaksi pada antarmuka"],
+                    ["PHP", "Pemrosesan halaman dan data"],
+                    ["SQL", "Penyimpanan informasi website"],
+                    ["UI", "Rancangan yang mudah digunakan"],
+                ] as $technology): ?>
+                    <div class="col-6 col-md-4">
+                        <div class="tech-item">
+                            <span class="tech-mark" aria-hidden="true"><?= e($technology[0]) ?></span>
+                            <h3 class="h6 fw-bold"><?= e($technology[0]) ?></h3>
+                            <p class="text-muted small mb-0"><?= e($technology[1]) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
-        <hr>
-        <small>© <span id="year"></span> HMPSIF. All rights reserved.</small>
-    </div>
-</footer>
+    </section>
+</main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/app.js"></script>
+<?php include "footer.php"; ?>
 </body>
 </html>

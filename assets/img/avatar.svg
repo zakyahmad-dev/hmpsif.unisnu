@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title">
+  <title id="title">Foto pengurus HMPSIF</title>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0f3f7"/><stop offset="1" stop-color="#dce4ed"/></linearGradient></defs>
+  <circle cx="160" cy="160" r="160" fill="url(#bg)"/>
+  <circle cx="160" cy="122" r="54" fill="#a9b7c8"/>
+  <path d="M56 286c9-57 50-91 104-91s95 34 104 91" fill="#8c9eb2"/>
+  <circle cx="268" cy="55" r="25" fill="#c82d3b"/>
+  <path d="M258 55h20M268 45v20" stroke="#fff" stroke-linecap="round" stroke-width="4"/>
+</svg>

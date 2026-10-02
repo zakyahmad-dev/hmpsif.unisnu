@@ -36,14 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Login Admin HMTI</title>
+    <title>Login Admin HMPSIF</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/admin.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="card card-modern p-4">
 
-                <h3 class="mb-4">Login Admin HMTI</h3>
+                <h3 class="mb-4">Login Admin HMPSIF</h3>
 
                 <?php if ($err): ?>
                     <div class="alert alert-danger">
