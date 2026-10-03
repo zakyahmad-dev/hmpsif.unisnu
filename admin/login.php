@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../config/database.php";
+require_once __DIR__ . "/../includes.php";
 
 if (isset($_SESSION["admin_id"])) {
     header("Location: index.php");
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         rel="stylesheet"
     >
 
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="<?= url("assets/css/style_modern.css") ?>" rel="stylesheet">
 </head>
 
 <body class="bg-light">

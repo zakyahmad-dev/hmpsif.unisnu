@@ -1,0 +1,12 @@
+# Konfigurasi lokal / kredensial — jangan pernah di-commit
+config/config.local.php
+config/.env
+.env
+
+# Log & cache
+*.log
+*.cache
+
+# Berkas sistem
+.DS_Store
+Thumbs.db

@@ -1,18 +1,18 @@
 --CREATE DATABASE IF NOT EXISTS db_himpunan CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 --USE db_himpunan;
 
-CREATE TABLE users(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(100),username VARCHAR(50) UNIQUE,password VARCHAR(255),role ENUM('admin','editor') DEFAULT 'admin');
-CREATE TABLE anggota(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),nim VARCHAR(40),semester VARCHAR(20),kelas VARCHAR(30),email VARCHAR(120),whatsapp VARCHAR(30),divisi VARCHAR(80),foto VARCHAR(255));
-CREATE TABLE pengurus(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),jabatan VARCHAR(100),divisi VARCHAR(80),deskripsi TEXT,foto VARCHAR(255));
-CREATE TABLE program_kerja(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(160),divisi VARCHAR(80),deskripsi TEXT,status VARCHAR(30),tahun INT,waktu VARCHAR(100),tempat VARCHAR(150),banner VARCHAR(255),detail TEXT);
-CREATE TABLE kegiatan(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(160),tanggal DATE,lokasi VARCHAR(150),deskripsi TEXT,status VARCHAR(30),poster VARCHAR(255));
-CREATE TABLE berita(id INT AUTO_INCREMENT PRIMARY KEY,judul VARCHAR(200),penulis VARCHAR(120),tanggal DATE,kategori VARCHAR(60),ringkasan TEXT,thumbnail VARCHAR(255),isi LONGTEXT);
-CREATE TABLE galeri(id INT AUTO_INCREMENT PRIMARY KEY,judul VARCHAR(160),foto VARCHAR(255),kegiatan VARCHAR(160),tahun INT);
-CREATE TABLE pendaftaran(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),nim VARCHAR(40),semester VARCHAR(20),kelas VARCHAR(30),whatsapp VARCHAR(30),email VARCHAR(120),divisi VARCHAR(80),alasan TEXT,agree TINYINT(1),status ENUM('Pending','Diproses','Diterima','Ditolak') DEFAULT 'Pending',created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
-CREATE TABLE kontak(id INT AUTO_I  NCREMENT PRIMARY KEY,nama VARCHAR(120),email VARCHAR(120),subjek VARCHAR(160),pesan TEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS users(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(100),username VARCHAR(50) UNIQUE,password VARCHAR(255),role ENUM('admin','editor') DEFAULT 'admin');
+CREATE TABLE IF NOT EXISTS anggota(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),nim VARCHAR(40),semester VARCHAR(20),kelas VARCHAR(30),email VARCHAR(120),whatsapp VARCHAR(30),divisi VARCHAR(80),foto VARCHAR(255));
+CREATE TABLE IF NOT EXISTS pengurus(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),jabatan VARCHAR(100),divisi VARCHAR(80),deskripsi TEXT,foto VARCHAR(255));
+CREATE TABLE IF NOT EXISTS program_kerja(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(160),divisi VARCHAR(80),deskripsi TEXT,status VARCHAR(30),tahun INT,waktu VARCHAR(100),tempat VARCHAR(150),banner VARCHAR(255),detail TEXT);
+CREATE TABLE IF NOT EXISTS kegiatan(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(160),tanggal DATE,lokasi VARCHAR(150),deskripsi TEXT,status VARCHAR(30),poster VARCHAR(255));
+CREATE TABLE IF NOT EXISTS berita(id INT AUTO_INCREMENT PRIMARY KEY,judul VARCHAR(200),penulis VARCHAR(120),tanggal DATE,kategori VARCHAR(60),ringkasan TEXT,thumbnail VARCHAR(255),isi LONGTEXT);
+CREATE TABLE IF NOT EXISTS galeri(id INT AUTO_INCREMENT PRIMARY KEY,judul VARCHAR(160),foto VARCHAR(255),kegiatan VARCHAR(160),tahun INT);
+CREATE TABLE IF NOT EXISTS pendaftaran(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),nim VARCHAR(40),semester VARCHAR(20),kelas VARCHAR(30),whatsapp VARCHAR(30),email VARCHAR(120),divisi VARCHAR(80),alasan TEXT,agree TINYINT(1),status ENUM('Pending','Diproses','Diterima','Ditolak') DEFAULT 'Pending',created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS kontak(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),email VARCHAR(120),subjek VARCHAR(160),pesan TEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 
-INSERT INTO users(nama,username,password,role) VALUES('Administrator HMTI','admin','$2y$10$7k2gG7jzQj1m3r8qJm1Z6e9q2m7cZ8X8Z7Qp3y6Wq5v2mY0r9aK5S','admin');
--- Password demo: admin123. Jika hash demo tidak cocok pada PHP versi tertentu, jalankan: php -r "echo password_hash('admin123', PASSWORD_DEFAULT), PHP_EOL;"
+INSERT INTO users(nama,username,password,role) VALUES('Administrator HMTI','admin','$2y$10$LpzblOiSDNGdpvg2e4.TyueUk6AXQStgCaautmPZHcUBiaY1xCIVC','admin');
+-- Password: admin123 (hash bcrypt valid, sudah diuji dengan password_verify())
 
 INSERT INTO pengurus(nama,jabatan,divisi,deskripsi,foto) VALUES
 ('Akmal Mustofa','Ketua','BPH','Mengkoordinasikan arah organisasi.','assets/img/avatar.svg'),
@@ -43,3 +43,13 @@ INSERT INTO galeri(judul,foto,kegiatan,tahun) VALUES
 ('Makrab 2026','assets/img/placeholder.svg','Makrab Informatika',2026),
 ('PKKMB 2026','assets/img/placeholder.svg','PKKMB Teknik Informatika',2026),
 ('Workshop','assets/img/placeholder.svg','Workshop Web Development',2026);
+
+-- ============================================================
+-- PERBAIKAN (jalankan blok ini kalau database sudah terlanjur
+-- di-import dengan versi lama / tabel kontak belum ada)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS kontak(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(120),email VARCHAR(120),subjek VARCHAR(160),pesan TEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
+UPDATE users
+SET password = '$2y$10$LpzblOiSDNGdpvg2e4.TyueUk6AXQStgCaautmPZHcUBiaY1xCIVC'
+WHERE username = 'admin';

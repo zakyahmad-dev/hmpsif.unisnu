@@ -161,7 +161,7 @@ $divisiTampil = $hasilDivisi;
         rel="stylesheet"
     >
 
-    <link href="assets/css/style_modern.css" rel="stylesheet">
+    <link href="<?= url("assets/css/style_modern.css") ?>" rel="stylesheet">
 </head>
 
 <body>
@@ -215,7 +215,7 @@ $divisiTampil = $hasilDivisi;
 
                                     <img
                                         class="avatar"
-                                        src="<?= e($r["foto"] ?: "assets/img/avatar.svg") ?>"
+                                        src="<?= e(asset_url($r["foto"], "assets/img/avatar.svg")) ?>"
                                         alt="<?= e($r["nama"]) ?>"
                                     >
 

@@ -1,14 +1,13 @@
 <?php require "includes.php"; ?>
 <!doctype html>
 <html lang="id">
-    <a class="about-brand" href="index.php">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About | HMPSIF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/style_modern.css" rel="stylesheet">
+    <link href="<?= url("assets/css/style_modern.css") ?>" rel="stylesheet">
     <style>
         .about-hero { padding: 90px 0 70px; background: linear-gradient(135deg, #eef4ff, #ffffff); }
         .about-card { border: 0; border-radius: 22px; box-shadow: 0 10px 35px rgba(0,0,0,.07); height: 100%; }
@@ -43,8 +42,9 @@
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="card about-card p-4 text-center">
-                    <img src="assets/img/creator-1.jpg" alt="Foto Pembuat 1" class="creator-photo mx-auto mb-3"
-                         onerror="this.src='assets/img/foto-pengurus/nauval.jpg'">
+                    <img src="<?= url("assets/img/foto-pengurus/nauval.JPG") ?>"
+                         alt="Foto Nauval Hibrizi Hakim" class="creator-photo mx-auto mb-3"
+                         onerror="this.src='<?= url("assets/img/avatar.svg") ?>'">
                     <h4>Nauval Hibrizi Hakim</h4>
                     <p class="text-primary fw-semibold mb-2">Web Developer / Frontend Developer</p>
                     <p class="text-muted">Profil singkat pembuat pertama. Jelaskan peran, kontribusi, dan tanggung jawabnya dalam proses pembuatan website HMPSIF.</p>
@@ -55,8 +55,9 @@
 
             <div class="col-md-6">
                 <div class="card about-card p-4 text-center">
-                    <img src="assets/img/creator-2.jpg" alt="Foto Pembuat 2" class="creator-photo mx-auto mb-3"
-                         onerror="this.src='assets/img/foto-pengurus/zaky.jpg'">
+                    <img src="<?= url("assets/img/foto-pengurus/zaky.JPG") ?>"
+                         alt="Foto Zaky Ahmad Alkam Mushoffa" class="creator-photo mx-auto mb-3"
+                         onerror="this.src='<?= url("assets/img/avatar.svg") ?>'">
                     <h4>Zaky Ahmad Alkam Mushoffa</h4>
                     <p class="text-primary fw-semibold mb-2">UI/UX Designer / Backend Developer</p>
                     <p class="text-muted">Profil singkat pembuat kedua. Jelaskan peran, kontribusi, dan tanggung jawabnya dalam proses pembuatan website HMPSIF.</p>
@@ -105,7 +106,7 @@
             <!-- HTML -->
             <div class="col-md-4">
                 <div class="tech-item">
-                    <img src="assets/img/html.jpeg"
+                    <img src="<?= url("assets/img/html.jpeg") ?>"
                          alt="Logo HTML"
                          class="mb-3"
                          style="width: 32px; height: 32px; object-fit: contain;">
@@ -120,7 +121,7 @@
             <!-- CSS -->
             <div class="col-md-4">
                 <div class="tech-item">
-                    <img src="assets/img/css.jpeg"
+                    <img src="<?= url("assets/img/css.jpeg") ?>"
                          alt="Logo CSS"
                          class="mb-3"
                          style="width: 32px; height: 32px; object-fit: contain;">
@@ -135,7 +136,7 @@
             <!-- Bootstrap -->
             <div class="col-md-4">
                 <div class="tech-item">
-                    <img src="assets/img/bootstrap.jpeg"
+                    <img src="<?= url("assets/img/bootstrap.jpeg") ?>"
                          alt="Logo Bootstrap"
                          class="mb-3"
                          style="width: 32px; height: 32px; object-fit: contain;">
@@ -150,7 +151,7 @@
             <!-- PHP -->
             <div class="col-md-4">
                 <div class="tech-item">
-                    <img src="assets/img/php.jpeg"
+                    <img src="<?= url("assets/img/php.jpeg") ?>"
                          alt="Logo PHP"
                          class="mb-3"
                          style="width: 32px; height: 32px; object-fit: contain;">
@@ -165,7 +166,7 @@
             <!-- Database -->
             <div class="col-md-4">
                 <div class="tech-item">
-                    <img src="assets/img/database.jpeg"
+                    <img src="<?= url("assets/img/database.jpeg") ?>"
                          alt="Logo Database"
                          class="mb-3"
                          style="width: 32px; height: 32px; object-fit: contain;">
@@ -180,7 +181,7 @@
             <!-- JavaScript -->
             <div class="col-md-4">
                 <div class="tech-item">
-                    <img src="assets/img/javascript.jpeg"
+                    <img src="<?= url("assets/img/javascript.svg") ?>"
                          alt="Logo JavaScript"
                          class="mb-3"
                          style="width: 32px; height: 32px; object-fit: contain;">
@@ -195,7 +196,7 @@
             <!-- XAMPP -->
             <div class="col-md-4">
                 <div class="tech-item">
-                    <img src="assets/img/xampp.jpeg"
+                    <img src="<?= url("assets/img/xampp.jpeg") ?>"
                          alt="Logo XAMPP"
                          class="mb-3"
                          style="width: 32px; height: 32px; object-fit: contain;">
@@ -210,7 +211,6 @@
 
         </div>
     </div>
-</section>
 </section>
 
 <section class="section bg-light">
@@ -236,7 +236,7 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-5"><h5 class="text-white">HMPSIF</h5><p>Himpunan Mahasiswa Prodi Teknik Informatika</p><p class="mb-0">“Berorganisasi, Berkarya, dan Berkontribusi.”</p></div>
-            <div class="col"><h6 class="text-white">Navigasi</h6><a class="footer-link d-block" href="tentang.php">Tentang Kami</a><a class="footer-link d-block" href="program.php">Program Kerja</a><a class="footer-link d-block" href="berita.php">Berita</a></div>
+            <div class="col"><h6 class="text-white">Navigasi</h6><a class="footer-link d-block" href="<?= url("tentang.php") ?>">Tentang Kami</a><a class="footer-link d-block" href="<?= url("program.php") ?>">Program Kerja</a><a class="footer-link d-block" href="<?= url("berita.php") ?>">Berita</a></div>
             <div class="col"><h6 class="text-white">Kontak</h6><p class="mb-1">hmpsif@unisnu.ac.id</p><p>+62 882-0075-6878</p></div>
         </div>
         <hr>
@@ -245,6 +245,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="<?= url("assets/js/app.js") ?>"></script>
 </body>
 </html>
